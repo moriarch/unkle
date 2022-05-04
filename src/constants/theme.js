@@ -26,3 +26,18 @@ export const font = {
   normal:'Montserrat-Regular',
   bold:'Montserrat-Bold'
 } 
+
+export const section_title = {
+  fontSize: 20,
+  textTransform: 'uppercase',
+  color: 'white',
+  letterSpacing: 1,
+  fontFamily:  font.normal,
+  letterSpacing:2
+}
+export const section_route = {
+  fontSize: 14,
+  color: colors.primary,
+  fontFamily:  font.normal,
+  
+}
