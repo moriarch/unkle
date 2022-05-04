@@ -1,9 +1,9 @@
 import React from 'react';
 import HomeScreen from '../screens/HomeScreen';
-import HomeIco from '../../assets/tabicons/home'
+import HomeIco from '../assets/tabicons/home'
 
 import ContactsScreen from '../screens/ContactsScreen';
-import ContactsIco from '../../assets/tabicons/contacts'
+import ContactsIco from '../assets/tabicons/contacts'
 
 
 

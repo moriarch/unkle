@@ -1,7 +1,7 @@
 import {Dimensions} from 'react-native';
 import { Platform, NativeModules } from 'react-native';
 const { StatusBarManager } = NativeModules;
-const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 20 : StatusBarManager.HEIGHT;
+const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 30 : StatusBarManager.HEIGHT;
 
 const {width, height} = Dimensions.get('window');
 
@@ -21,3 +21,8 @@ export const body = {
   color:'white',
   paddingTop:STATUSBAR_HEIGHT + 30
 }
+
+export const font = {
+  normal:'Montserrat-Regular',
+  bold:'Montserrat-Bold'
+} 

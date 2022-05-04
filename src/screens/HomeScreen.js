@@ -1,37 +1,28 @@
 import React from 'react';
-import {Text, View, ScrollView} from 'react-native';
+import {Text, View, ScrollView, TouchableOpacity} from 'react-native';
 import Logo from '../components/logo';
-import {body, colors} from '../constants/theme';
-
+import {body, colors, font} from '../constants/theme';
+import CalculatorIco from '../assets/svg/calculator'
 const HomeScreen = () => {
   
   return (
     <ScrollView style={body}>
-     <View style={{flexDirection: 'column', alignItems: 'center'}}>
+     <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <Logo />
         <Text
           style={{
             marginLeft: 10,
-            fontSize: 8,
+            fontSize: 9,
             fontWeight: 'normal',
             color: 'white',
-            fontFamily: 'Roboto',
+            fontFamily:  font.normal,
+            letterSpacing:2
           }}>
           МАРКЕТИНГОВОЕ{'\n'}АГЕНТСТВО
         </Text>
-        <Text style={{color: 'white',fontFamily: 'normal'}}>  normal </Text>
-        <Text style={{color: 'white',fontFamily: 'notoserif'}}>  notoserif </Text>
-        <Text style={{color: 'white',fontFamily: 'sans-serif'}}>  sans-serif </Text>
-        <Text style={{color: 'white',fontFamily: 'sans-serif-light'}}>  sans-serif-light </Text>
-        <Text style={{color: 'white',fontFamily: 'sans-serif-thin'}}>  sans-serif-thin </Text>
-        <Text style={{color: 'white',fontFamily: 'sans-serif-condensed'}}>  sans-serif-condensed </Text>
-        <Text style={{color: 'white',fontFamily: 'sans-serif-medium'}}>  sans-serif-medium </Text>
-        <Text style={{color: 'white',fontFamily: 'serif'}}>  serif </Text>
-        {/* <Text style={{color: 'white',fontFamily: 'Roboto'}}>  Roboto </Text> */}
-        <Text style={{color: 'white',fontFamily: 'monospace'}}>  monospace </Text>  
-        <Text style={{color: 'white',fontFamily: 'monospace'}}>  monospace </Text>  
+         
       </View>
-      <View
+      <TouchableOpacity
         style={{
           backgroundColor: colors.primary,
           padding: 17,
@@ -45,19 +36,22 @@ const HomeScreen = () => {
             fontWeight: 'bold',
             color: 'white',
             flex: 1,
-            fontSize: 26,
-            fontFamily: 'Roboto',
+            fontSize: 20,
+            fontFamily:  font.bold,
           }}>
-          Расcчитайте стоимость вашего сайта
+          Расcчитайте стоимость{'\n'}вашего сайта
         </Text>
-       
-      </View>
+       <CalculatorIco/>
+      </TouchableOpacity>
       <Text
         style={{
           fontSize: 20,
           textTransform: 'uppercase',
           color: 'white',
           letterSpacing: 1,
+          fontFamily:  font.normal,
+          letterSpacing:2,
+          marginTop:55
         }}>
         Услуги
       </Text> 
