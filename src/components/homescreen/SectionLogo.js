@@ -1,11 +1,11 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 import Logo from '../logo';
-import {font} from '../../constants/theme';
+import {container, font} from '../../constants/theme';
 
 export default function SectionLogo() {
   return (
-    <View style={{flexDirection: 'row', alignItems: 'center'}}>
+    <View style={{flexDirection: 'row', alignItems: 'center',...container}}>
       <Logo/>
       <Text
         style={{

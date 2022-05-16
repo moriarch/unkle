@@ -15,10 +15,11 @@ const TabNavigator = () => {
   return (
     <>
       <Tab.Navigator
-        initialRouteName="Home"
+        initialRouteName="App"
         screenOptions={{
           headerShown: false,
           tabBarShowLabel: false,
+          tabBarHideOnKeyboard:true,
           tabBarStyle: {
             borderTopWidth: 0,
             backgroundColor: 'rgba(7, 7, 7, 0.6)',
@@ -33,12 +34,13 @@ const TabNavigator = () => {
             position: 'absolute',
           },
         }}>
-        {tabs.map(({name, screen}, index) => {
+        {tabs.map(({name, component}, index) => {
           return (
             <Tab.Screen
               key={name}
               name={name}
-              component={screen}
+              initialRouteName={name}
+              component={component}
               options={{
                 tabBarIcon: ({focused}) => {
                   return (

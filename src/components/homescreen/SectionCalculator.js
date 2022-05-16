@@ -2,7 +2,7 @@
 import React from 'react';
 import {Text,  TouchableOpacity} from 'react-native';
 import CalculatorIco from '../../assets/svg/calculator'
-import {font, colors} from '../../constants/theme';
+import {font, colors, container} from '../../constants/theme';
 
 export default function SectionCalculator(){
     return <TouchableOpacity
@@ -13,6 +13,7 @@ export default function SectionCalculator(){
       alignItems: 'center',
       justifyContent: 'space-between',
       marginTop: 32,
+      ...container
     }}>
     <Text
       style={{

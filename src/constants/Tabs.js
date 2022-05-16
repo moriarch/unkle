@@ -1,5 +1,6 @@
 import React from 'react';
-import HomeScreen from '../screens/HomeScreen';
+
+import HomeStackScreen from '../navigations/HomeStackScreen';
 import HomeIco from '../assets/tabicons/home'
 
 import ContactsScreen from '../screens/ContactsScreen';
@@ -7,25 +8,27 @@ import ContactsIco from '../assets/tabicons/contacts'
 
 
 
-import {colors, sizes} from '../constants/theme';
+import {colors} from '../constants/theme';
 
 export const tabs = [
     {
-      name: 'Home',
-      screen: HomeScreen,
+      name: 'HomeTab',
+      component: HomeStackScreen,
      
     },
     {
       name: 'Contacts',
-      screen: ContactsScreen,
+      component: ContactsScreen,
       
     }
   ];
 
 
   export function Icon({name,focused}){
-      if(name==='Home')
+      if(name==='HomeTab')
       return <HomeIco color={focused? colors.primary :'white'}/>
       if(name==='Contacts')
       return <ContactsIco color={focused? colors.primary :'white'}/>
+
+      return null
   }
