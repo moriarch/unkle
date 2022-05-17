@@ -9,7 +9,7 @@ const HomeScreen = () => {
   const [data, setData] = useState(null);
   const [refreshing, setRefreshing] = React.useState(false);
   useEffect(() => {
-    MainPageRequest().then(res => setData(res));
+    MainPageRequest().then(res => {console.log(res);setData(res)});
   }, []);
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
@@ -18,7 +18,7 @@ const HomeScreen = () => {
     
   }, []);
   return (
-    <ScrollView style={body} showsHorizontalScrollIndicator={false} refreshControl={
+    <ScrollView style={body} showsVerticalScrollIndicator={false} refreshControl={
       <RefreshControl
         refreshing={refreshing}
         colors={[colors.primary,"white"]}

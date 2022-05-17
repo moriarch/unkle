@@ -1,8 +1,14 @@
+// @ts-nocheck
 import React from 'react';
 import {Text, View, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {section_title, section_route, colors, container} from '../../constants/theme';
-export default function TitleBorder({title, route}) {
+import {
+  section_title,
+  section_route,
+  colors,
+  container,
+} from '../../constants/theme';
+export default function TitleBorder({title, route, category}) {
   const name = 'Все ' + title.toLowerCase();
   const navigation = useNavigation();
   return (
@@ -13,10 +19,12 @@ export default function TitleBorder({title, route}) {
           justifyContent: 'space-between',
           alignItems: 'center',
           marginTop: 55,
-          
         }}>
         <Text style={section_title}>{title}</Text>
-        <TouchableOpacity onPress={() => navigation.navigate(route)}>
+        <TouchableOpacity
+          onPress={() =>
+            navigation.navigate(route, {id: category, title: title})
+          }>
           <Text style={section_route}>{name}</Text>
         </TouchableOpacity>
       </View>

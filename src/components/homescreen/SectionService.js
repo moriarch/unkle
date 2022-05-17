@@ -10,7 +10,7 @@ export default function SectionService({data}) {
 
   return (
     <>
-      <TitleBorder title={data.name} route="List" />
+      <TitleBorder title={data.name} route="List" category={data.id} />
       <FlatList
         data={data.items}
         renderItem={Slide}

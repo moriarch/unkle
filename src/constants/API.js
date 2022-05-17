@@ -8,4 +8,5 @@ export function MainPageRequest(){
     .then(res=>{
         return res;
     })
+    .catch(err=>console.log(err))
 }

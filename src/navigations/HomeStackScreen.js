@@ -1,20 +1,17 @@
 import React from 'react';
-
+import {Platform} from 'react-native'
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from '../screens/HomeScreen';
 import HomeScreenList from '../screens/HomeScreenList';
 import HomeScreenDetail from '../screens/HomeScreenDetail';
-import { TransitionSpecs } from '@react-navigation/stack';
+// import { TransitionSpecs } from '@react-navigation/stack';
 
 const HomeStack = createNativeStackNavigator();
 
 const optins = {
   gestureEnabled: true,
-  transitionSpec: {
-    open: TransitionSpecs.TransitionIOSSpec,
-    close: TransitionSpecs.TransitionIOSSpec,
-  },
-  
+  animation:Platform.OS === 'ios' ? "default" : "fade_from_bottom",
+  orientation:"portrait"
 }
 
 export default function HomeStackScreen() {

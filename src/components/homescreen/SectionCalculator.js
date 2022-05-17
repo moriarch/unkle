@@ -23,7 +23,7 @@ export default function SectionCalculator(){
         fontSize: 20,
         fontFamily:  font.bold,
       }}>
-      Расcчитайте стоимость{'\n'}вашего сайта
+      Расcчитайте{'\n'}стоимость{'\n'}вашего сайта
     </Text>
    <CalculatorIco/>
   </TouchableOpacity>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import {View} from 'react-native';
+import {View, Platform} from 'react-native';
 
 import {colors, sizes} from '../constants/theme';
 import {StyleSheet, Animated} from 'react-native';
@@ -15,10 +15,11 @@ const TabNavigator = () => {
   return (
     <>
       <Tab.Navigator
-        initialRouteName="App"
+        initialRouteName={tabs[0].name}
         screenOptions={{
           headerShown: false,
           tabBarShowLabel: false,
+          lazy:true,
           tabBarHideOnKeyboard:true,
           tabBarStyle: {
             borderTopWidth: 0,
@@ -39,7 +40,6 @@ const TabNavigator = () => {
             <Tab.Screen
               key={name}
               name={name}
-              initialRouteName={name}
               component={component}
               options={{
                 tabBarIcon: ({focused}) => {
