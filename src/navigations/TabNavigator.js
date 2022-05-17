@@ -16,10 +16,12 @@ const TabNavigator = () => {
     <>
       <Tab.Navigator
         initialRouteName={tabs[0].name}
+        
         screenOptions={{
           headerShown: false,
           tabBarShowLabel: false,
           lazy:true,
+          unmountOnBlur:true,
           tabBarHideOnKeyboard:true,
           tabBarStyle: {
             borderTopWidth: 0,

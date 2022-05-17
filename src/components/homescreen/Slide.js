@@ -6,9 +6,10 @@ import ImageAutoSize from '../common/ImageAutoSize';
 const MIMEType = url => url.indexOf('.svg') > 0;
 const ImageSVG = ({url}) => <SvgCssUri uri={url} />;
 
-export default function Slide({item}) {
+export default function Slide({item, onSelect}) {
+
   return (
-    <TouchableOpacity style={styles.slide}>
+    <TouchableOpacity style={styles.slide} onPress={onSelect}>
       {MIMEType(item.image) ? (
         <ImageSVG url={'https://app.unkle.pro' + item.image} />
       ) : (

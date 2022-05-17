@@ -9,12 +9,12 @@ const HomeScreen = () => {
   const [data, setData] = useState(null);
   const [refreshing, setRefreshing] = React.useState(false);
   useEffect(() => {
-    MainPageRequest().then(res => {console.log(res);setData(res)});
+    MainPageRequest().then(res => setData(res));
   }, []);
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     setData(null);
-    MainPageRequest().then(res =>{ setData(res);setRefreshing(false)});
+    MainPageRequest().then(res =>{setData(res);setRefreshing(false)});
     
   }, []);
   return (
