@@ -20,9 +20,15 @@ export default function HomeStackScreen() {
       screenOptions={{
         headerShown: false,
       }}>
-      <HomeStack.Screen name="Home" component={HomeScreen}  options={optins}/>
-      <HomeStack.Screen name="List" component={HomeScreenList}  options={optins}/>
-      <HomeStack.Screen name="Detail" component={HomeScreenDetail}  options={optins}/>
+      <HomeStack.Screen name="Home" component={HomeScreen}  
+// @ts-ignore
+      options={optins}/>
+      <HomeStack.Screen name="List" component={HomeScreenList}  
+// @ts-ignore
+      options={optins}/>
+      <HomeStack.Screen name="Detail" component={HomeScreenDetail}  
+// @ts-ignore
+      options={optins}/>
     </HomeStack.Navigator>
   );
 }

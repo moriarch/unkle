@@ -21,7 +21,7 @@ const TabNavigator = () => {
           headerShown: false,
           tabBarShowLabel: false,
           lazy:true,
-          unmountOnBlur:true,
+          // unmountOnBlur:true,
           tabBarHideOnKeyboard:true,
           tabBarStyle: {
             borderTopWidth: 0,
