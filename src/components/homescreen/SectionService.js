@@ -19,7 +19,6 @@ export default function SectionService({data}) {
         <Slide item={item} onSelect={() =>
           navigation.navigate('Detail', {id: item.id, title: item.name})
         }/>
-
      )}
         keyExtractor={item => item.id}
         style={{marginTop: 24}}

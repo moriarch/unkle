@@ -8,7 +8,7 @@ const ImageSVG = ({url}) => <SvgCssUri uri={url} />;
 
 export default function Slide({item, onSelect}) {
 
-  return (
+  return item.image ? (
     <TouchableOpacity style={styles.slide} onPress={onSelect}>
       {MIMEType(item.image) ? (
         <ImageSVG url={'https://app.unkle.pro' + item.image} />
@@ -16,7 +16,7 @@ export default function Slide({item, onSelect}) {
         <ImageAutoSize url={'https://app.unkle.pro' + item.image} />
       )}
     </TouchableOpacity>
-  );
+  ):null;
 }
 
 const styles = StyleSheet.create({
