@@ -1,26 +1,26 @@
 import React, {useEffect, useState} from 'react';
 import {ScrollView, ActivityIndicator, View, RefreshControl} from 'react-native';
-import {body, colors, container} from '../constants/theme';
+import {body, colors} from '../constants/theme';
 import SectionService from '../components/homescreen/SectionService';
 import SectionLogo from '../components/homescreen/SectionLogo';
 import SectionCalculator from '../components/homescreen/SectionCalculator';
 import {MainPageRequest} from '../constants/API';
+
 const HomeScreen = () => {
+
   const [data, setData] = useState(null);
-  const [refreshing, setRefreshing] = React.useState(false);
   useEffect(() => {
     MainPageRequest().then(res => setData(res));
   }, []);
   const onRefresh = React.useCallback(() => {
-    setRefreshing(true);
-    setData(null);
-    MainPageRequest().then(res =>{setData(res);setRefreshing(false)});
-    
+    setData(false);
+    MainPageRequest().then(res =>setData(res));
   }, []);
+
   return (
     <ScrollView style={body} showsVerticalScrollIndicator={false} refreshControl={
       <RefreshControl
-        refreshing={refreshing}
+        refreshing={data===false ? true : false}
         colors={[colors.primary,"white"]}
         progressBackgroundColor="transparent"
         title="Update screen"

@@ -1,14 +1,22 @@
-import React from 'react';
-import {View,Text} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {View, Text, ScrollView} from 'react-native';
 import TitleInner from '../components/common/TitleInner';
-import { body } from '../constants/theme';
+import {DetailPageRequest} from '../constants/API';
+import {body, container} from '../constants/theme';
 
 export default function HomeScreenDetail({route, navigation}) {
   const {id, title} = route.params;
-    return (
-      <View style={body}>
-      <TitleInner title={title}/>
-      <Text style={{color: 'black'}}>{JSON.stringify(route.params)}</Text>
-      </View>
-    );
-  }
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    DetailPageRequest(id).then(res => setData(res));
+  }, []);
+  return  data ? (
+    <View style={body}>
+      <TitleInner title={title} />
+      <ScrollView style={{marginTop:45,...container}}>
+      <Text style={{color: 'white', fontSize:20}}>{data['detail_text']}</Text>
+      </ScrollView>
+    </View>
+  ): null
+}

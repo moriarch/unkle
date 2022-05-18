@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {FlatList} from 'react-native';
 import TitleBorder from '../common/TitleBorder';
 import Slide from './Slide';

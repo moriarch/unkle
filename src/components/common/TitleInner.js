@@ -1,11 +1,16 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
+import BackBtn from '../../assets/svg/backbtn';
 import {container, h1} from '../../constants/theme';
 
+import {useNavigation} from '@react-navigation/native';
+
 export default function TitleInner({title}) {
+  const navigation = useNavigation();
   return (
-    <View style={{...container,alignItems: 'center'}}>
-      <Text style={{...h1,textAlign:'center'}}>{title}</Text>
-    </View>
+    <TouchableOpacity style={{...container,flexDirection:'row',alignItems: 'center'}}>
+      <BackBtn onPress={()=>navigation.goBack()}/>
+      <Text style={{...h1,flex:1,textAlign:'center'}}>{title}</Text>
+    </TouchableOpacity>
   );
 }

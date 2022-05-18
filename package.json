@@ -11,7 +11,8 @@
     "clean:android": "cd android && ./gradlew clean && cd ../",
     "clean:ios": "cd ios && xcodebuild clean && cd ../",
     "product:ios":"npx react-native run-ios --configuration Release",
-    "product:android":"npx react-native run-android --variant release"
+    "product:android":"npx react-native run-android --variant release",
+    "build:android":"cd android && ./gradlew assembleRelease"
   },
   "dependencies": {
     "react": "17.0.2",
