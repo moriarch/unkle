@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {View, Text, ScrollView, ActivityIndicator} from 'react-native';
 import TitleInner from '../components/common/TitleInner';
 import {DetailPageRequest} from '../constants/API';
-import {body, container, colors} from '../constants/theme';
+import {body, container, colors, font} from '../constants/theme';
 
 export default function HomeScreenDetail({route, navigation}) {
   const {id, title} = route.params;
@@ -14,8 +14,8 @@ export default function HomeScreenDetail({route, navigation}) {
   return data ? (
     <View style={body}>
       <TitleInner title={title} />
-      <ScrollView style={{marginTop: 45, ...container}}>
-        <Text style={{color: 'white', fontSize: 20}}>
+      <ScrollView style={{marginTop: 45}}>
+        <Text style={{color: 'white', fontSize: 20,...container, fontFamily:font.normal}}>
           {data['detail_text']}
         </Text>
       </ScrollView>

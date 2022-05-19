@@ -5,6 +5,7 @@ import {ListPageRequest} from '../constants/API';
 import {body, colors, container} from '../constants/theme';
 
 import ListElement from '../components/homescreen/ListElement';
+import Separator from '../components/common/Separator';
 
 export default function HomeScreenList({route, navigation}) {
   const {id, title} = route.params;
@@ -19,7 +20,7 @@ export default function HomeScreenList({route, navigation}) {
           data={data.items}
           contentContainerStyle={body}
           ListHeaderComponent={<TitleInner title={title} />}
-          ItemSeparatorComponent={()=><View style={{height:1,width:'100%',backgroundColor:'white',...container,opacity:.4}}></View>}
+          ItemSeparatorComponent={()=><Separator delay={data.items.length*300}/>}
           ListHeaderComponentStyle={{marginBottom:45}}
           renderItem={({item, index}) => (
             <ListElement

@@ -48,8 +48,8 @@ const TabNavigator = () => {
                   return (
                     <View
                       style={{
-                        width: 26,
-                        height: 26,
+                        width: "100%",
+                        height: 40,
                         justifyContent: 'center',
                         alignItems:'center',
                       }}>
