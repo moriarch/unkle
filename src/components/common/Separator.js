@@ -18,8 +18,13 @@ console.log(delay)
     <Animated.View
       style={{
         opacity: fadeAnim,
+        justifyContent:'center',
+        alignItems:'center',
+        backgroundColor:'#191A1D',
+        height:30
       }}>
       <View style={{height:1,width:'100%',backgroundColor:'white',...container,opacity:.4}}></View>
     </Animated.View>
   );
 }
+// borderRadius: 20,

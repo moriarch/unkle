@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {View, FlatList, ActivityIndicator} from 'react-native';
+import {FlatList, View,Text} from 'react-native';
 import TitleInner from '../components/common/TitleInner';
 import {ListPageRequest} from '../constants/API';
-import {body, colors, container} from '../constants/theme';
-
+import {body} from '../constants/theme';
+import Skeleton from '../components/common/Skeleton';
 import ListElement from '../components/homescreen/ListElement';
-import Separator from '../components/common/Separator';
 
 export default function HomeScreenList({route, navigation}) {
   const {id, title} = route.params;
@@ -15,33 +14,42 @@ export default function HomeScreenList({route, navigation}) {
     ListPageRequest(id).then(res => setData(res));
   }, []);
 
-  return  data ? (
-        <FlatList
-          data={data.items}
-          contentContainerStyle={body}
-          ListHeaderComponent={<TitleInner title={title} />}
-          ItemSeparatorComponent={()=><Separator delay={data.items.length*300}/>}
-          ListHeaderComponentStyle={{marginBottom:45}}
-          renderItem={({item, index}) => (
-            <ListElement
-              item={item}
-              index={index}
-              onSelect={() =>
-                navigation.navigate('Detail', {id: item.id, title: item.name})
-              }
-            />
-          )}
-          keyExtractor={item => item.id}
-          showsVerticalScrollIndicator={false}
+  return data ? (
+    <FlatList
+      data={data.items}
+      contentContainerStyle={body}
+      ListHeaderComponent={<TitleInner title={title} />}
+     
+      ListHeaderComponentStyle={{marginBottom: 45}}
+      renderItem={({item, index}) => (
+        <ListElement
+          item={item}
+          index={index}
+          all={data.items.length}
+          onSelect={() =>
+            navigation.navigate('Detail', {id: item.id, title: item.name})
+          }
         />
-      ) : (
-       <View style={{flex:1,justifyContent:'center',alignItems:'center',...body,paddingBottom:80}}>
-         <ActivityIndicator
-          size="large"
-          color={colors.primary}
-          style={{marginTop: 40}}
-        />
-       </View>
-      )
-  
+      )}
+     
+      keyExtractor={item => item.id}
+      showsVerticalScrollIndicator={false}
+    />
+  ) : (
+    <Loading count={5} title={title} />
+  );
 }
+
+const Loading = ({count, title}) => (
+  <View style={body}>
+    <TitleInner title={title} />
+    <View style={{marginTop: 45}}>
+      {[...new Array(count)].map((it, i) => (
+        <Skeleton
+          key={'skelet' + i}
+          style={{marginBottom: 15, borderRadius: 15, height: 70}}
+        />
+      ))}
+    </View>
+  </View>
+);

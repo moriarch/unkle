@@ -17,7 +17,6 @@ const BackBtn = (props) => (
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-    <Path stroke="#4A4A4A" d="M.5.5h45v45H.5z" />
   </Svg>
 )
 

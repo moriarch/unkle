@@ -8,9 +8,12 @@ import {useNavigation} from '@react-navigation/native';
 export default function TitleInner({title}) {
   const navigation = useNavigation();
   return (
-    <TouchableOpacity style={{...container,flexDirection:'row',alignItems: 'center'}}>
-      <BackBtn onPress={()=>navigation.goBack()}/>
-      <Text style={{...h1,flex:1,textAlign:'center', fontFamily:font.normal}}>{title}</Text>
+    <TouchableOpacity style={{flexDirection:'row',alignItems: 'center'}} onPress={()=>navigation.goBack()} >
+     <View style={{
+      height:45,
+      width:45
+     }}><BackBtn/></View>
+      <Text style={{...h1,flex:1, fontFamily:font.normal}}>{title}</Text>
     </TouchableOpacity>
   );
 }

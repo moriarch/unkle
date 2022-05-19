@@ -16,24 +16,33 @@ export default function CalculatorScreen() {
 
   return (
     <View style={body}>
-      {data ? <Content data={data} /> : <Loading count={5} />}
+      {data ? <Content data={data} /> : <Loading count={6} />}
     </View>
   );
 }
 
-const Loading = ({count}) =>
-  [...new Array(count)].map((it,i) => <Skeleton key={'skelet'+i} style={{marginBottom: 40}} />);
+const Loading = ({count}) => (
+  <>
+    <Text style={[container, h1, {paddingBottom: 80}]}>Калькулятор</Text>
+    {[...new Array(count)].map((it, i) => (
+      <Skeleton
+        key={'skelet' + i}
+        style={{marginBottom: 15, borderRadius: 15, height: 70}}
+      />
+    ))}
+  </>
+);
 
 function Content({data}) {
   return (
     <FlatList
       data={data}
-      // contentContainerStyle={body}
       ListHeaderComponent={<Text style={[container, h1]}>Калькулятор</Text>}
       ListHeaderComponentStyle={{marginBottom: 45}}
+      contentContainerStyle={{paddingBottom: 80}}
       renderItem={({item, index}) => (
         <FadeInUp delay={300 * index}>
-            <CalculateListItem data={item}/>
+          <CalculateListItem data={item} />
         </FadeInUp>
       )}
       keyExtractor={item => item.id}

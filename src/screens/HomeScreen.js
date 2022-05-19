@@ -6,7 +6,7 @@ import SectionLogo from '../components/homescreen/SectionLogo';
 import SectionCalculator from '../components/homescreen/SectionCalculator';
 import {MainPageRequest} from '../constants/API';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
 
   const [data, setData] = useState(null);
   useEffect(() => {
@@ -30,7 +30,8 @@ const HomeScreen = () => {
       />
     }>
       <SectionLogo />
-      <SectionCalculator/>
+      <SectionCalculator goCalc={() =>
+            navigation.navigate('Calculator')}/>
       <View style={{paddingBottom: 150}}>
         <Content data={data} />
       </View>
