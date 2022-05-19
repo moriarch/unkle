@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, ScrollView} from 'react-native';
+import {View, Text, ScrollView, ActivityIndicator} from 'react-native';
 import TitleInner from '../components/common/TitleInner';
 import {DetailPageRequest} from '../constants/API';
-import {body, container} from '../constants/theme';
+import {body, container, colors} from '../constants/theme';
 
 export default function HomeScreenDetail({route, navigation}) {
   const {id, title} = route.params;
@@ -11,12 +11,29 @@ export default function HomeScreenDetail({route, navigation}) {
   useEffect(() => {
     DetailPageRequest(id).then(res => setData(res));
   }, []);
-  return  data ? (
+  return data ? (
     <View style={body}>
       <TitleInner title={title} />
-      <ScrollView style={{marginTop:45,...container}}>
-      <Text style={{color: 'white', fontSize:20}}>{data['detail_text']}</Text>
+      <ScrollView style={{marginTop: 45, ...container}}>
+        <Text style={{color: 'white', fontSize: 20}}>
+          {data['detail_text']}
+        </Text>
       </ScrollView>
     </View>
-  ): null
+  ) : (
+    <View
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        ...body,
+        paddingBottom: 80,
+      }}>
+      <ActivityIndicator
+        size="large"
+        color={colors.primary}
+        style={{marginTop: 40}}
+      />
+    </View>
+  );
 }

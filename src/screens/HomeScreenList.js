@@ -21,9 +21,10 @@ export default function HomeScreenList({route, navigation}) {
           ListHeaderComponent={<TitleInner title={title} />}
           ItemSeparatorComponent={()=><View style={{height:1,width:'100%',backgroundColor:'white',...container,opacity:.4}}></View>}
           ListHeaderComponentStyle={{marginBottom:45}}
-          renderItem={({item}) => (
+          renderItem={({item, index}) => (
             <ListElement
               item={item}
+              index={index}
               onSelect={() =>
                 navigation.navigate('Detail', {id: item.id, title: item.name})
               }
@@ -33,11 +34,13 @@ export default function HomeScreenList({route, navigation}) {
           showsVerticalScrollIndicator={false}
         />
       ) : (
-        <ActivityIndicator
+       <View style={{flex:1,justifyContent:'center',alignItems:'center',...body,paddingBottom:80}}>
+         <ActivityIndicator
           size="large"
           color={colors.primary}
           style={{marginTop: 40}}
         />
+       </View>
       )
   
 }
