@@ -6,8 +6,8 @@ import HomeIco from '../assets/tabicons/home'
 import ContactsScreen from '../screens/ContactsScreen';
 import ContactsIco from '../assets/tabicons/contacts'
 
-import CalculatorScreen from '../screens/CalculatorScreen';
 import CalculateIcon from '../assets/tabicons/calc';
+import CalculatorStackScreen from '../navigations/CalculatorStackScreen';
 
 
 import {colors} from '../constants/theme';
@@ -19,8 +19,8 @@ export const tabs = [
     },
     {
      
-      name: 'Calculator',
-      component: CalculatorScreen,
+      name: 'CalculatorTab',
+      component: CalculatorStackScreen,
     },
     {
       name: 'Contacts',
@@ -34,7 +34,7 @@ export const tabs = [
       return <HomeIco color={focused? colors.primary :'white'}/>
       if(name==='Contacts')
       return <ContactsIco color={focused? colors.primary :'white'}/>
-      if(name==='Calculator')
+      if(name==='CalculatorTab')
       return <CalculateIcon color={focused? colors.primary :'white'}/>
 
       return null

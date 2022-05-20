@@ -7,9 +7,9 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-export default function CalculateListItem({data}) {
+export default function CalculateListItem({data,goList}) {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={goList}>
       <View style={styles.body}>
         <View style={styles.bodyChar}>
           <Text style={styles.char}>{data.name[0]}</Text>

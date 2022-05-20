@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {ScrollView, ActivityIndicator, View, RefreshControl} from 'react-native';
-import {body, colors} from '../constants/theme';
-import SectionService from '../components/homescreen/SectionService';
-import SectionLogo from '../components/homescreen/SectionLogo';
-import SectionCalculator from '../components/homescreen/SectionCalculator';
-import {MainPageRequest} from '../constants/API';
+import {body, colors} from '../../constants/theme';
+import SectionService from '../../components/homescreen/SectionService';
+import SectionLogo from '../../components/homescreen/SectionLogo';
+import SectionCalculator from '../../components/homescreen/SectionCalculator';
+import {MainPageRequest} from '../../constants/API';
 
 const HomeScreen = ({navigation}) => {
 

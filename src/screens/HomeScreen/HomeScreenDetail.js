@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, ScrollView, ActivityIndicator} from 'react-native';
-import TitleInner from '../components/common/TitleInner';
-import {DetailPageRequest} from '../constants/API';
-import {body, container, colors, font} from '../constants/theme';
+import TitleInner from '../../components/common/TitleInner';
+import {DetailPageRequest} from '../../constants/API';
+import {body, container, colors, font} from '../../constants/theme';
 
 export default function HomeScreenDetail({route, navigation}) {
   const {id, title} = route.params;

@@ -1,10 +1,9 @@
 import React from 'react';
 import {Platform} from 'react-native'
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomeScreen from '../screens/HomeScreen';
-import HomeScreenList from '../screens/HomeScreenList';
-import HomeScreenDetail from '../screens/HomeScreenDetail';
-// import { TransitionSpecs } from '@react-navigation/stack';
+import HomeScreenList from '../screens/HomeScreen/HomeScreenList';
+import HomeScreen from '../screens/HomeScreen/HomeScreen';
+import HomeScreenDetail from '../screens/HomeScreen/HomeScreenDetail';
 
 const HomeStack = createNativeStackNavigator();
 

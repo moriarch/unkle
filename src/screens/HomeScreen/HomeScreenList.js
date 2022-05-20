@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {FlatList, View,Text} from 'react-native';
-import TitleInner from '../components/common/TitleInner';
-import {ListPageRequest} from '../constants/API';
-import {body} from '../constants/theme';
-import Skeleton from '../components/common/Skeleton';
-import ListElement from '../components/homescreen/ListElement';
+import TitleInner from '../../components/common/TitleInner';
+import {ListPageRequest} from '../../constants/API';
+import {body} from '../../constants/theme';
+import Skeleton from '../../components/common/Skeleton';
+import ListElement from '../../components/homescreen/ListElement';
 
 export default function HomeScreenList({route, navigation}) {
   const {id, title} = route.params;
@@ -19,7 +19,6 @@ export default function HomeScreenList({route, navigation}) {
       data={data.items}
       contentContainerStyle={body}
       ListHeaderComponent={<TitleInner title={title} />}
-     
       ListHeaderComponentStyle={{marginBottom: 45}}
       renderItem={({item, index}) => (
         <ListElement

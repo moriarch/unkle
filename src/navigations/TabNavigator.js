@@ -1,7 +1,7 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import {View, Platform} from 'react-native';
+import {View, Platform, TouchableOpacity} from 'react-native';
 
 import {colors, sizes} from '../constants/theme';
 import {StyleSheet, Animated} from 'react-native';
@@ -52,6 +52,7 @@ const TabNavigator = () => {
                         height: 40,
                         justifyContent: 'center',
                         alignItems:'center',
+                        backgroundColor:'transparent'
                       }}>
                       <Icon name={name} focused={focused} />
                     </View>
